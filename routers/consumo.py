@@ -8,7 +8,7 @@ from models.tipo_consumidor import TipoConsumidorDB
 
 router = APIRouter(prefix="/consumos", tags=["CONSUMO"])
 
-@router.get(path="/consumos/unidade-consumidora/{unidade-consumidora-id}")
+@router.get(path="/consumos/unidade-consumidora")
 def calcular_unidade_consumidora(unidade_consumidora_id: int, bandeira_id: int):
     unidade_consumidora = UnidadeConsumidoraDB.get_or_none(UnidadeConsumidoraDB.id == unidade_consumidora_id)
     dispositivos = DispositivoDB.select().where(DispositivoDB.unidade_consumidora == unidade_consumidora)
@@ -26,7 +26,7 @@ def calcular_unidade_consumidora(unidade_consumidora_id: int, bandeira_id: int):
         'lista_dispositivos': list(dispositivos),
     }
 
-@router.get(path="/consumos/dependencia/{dependencia-id}")
+@router.get(path="/consumos/dependencia")
 def calcular_dependencia(dependencia_id, bandeira_id: int):
     dependencia = DependenciaDB.get_or_none(DependenciaDB.id == dependencia_id)
     dispositivos = DispositivoDB.select().where(DispositivoDB.dependencia == dependencia)
