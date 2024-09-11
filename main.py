@@ -9,6 +9,7 @@ from routers.dispositivo import router as dispositivos_router
 from routers.tipo_consumidor import router as tipo_router
 from routers.tipo_dispositivo import router as tipo_dispositivos_router
 from routers.unidade_consumidora import router as consumidor_router
+from routers.consumo import router as consumo_router
 
 app = FastAPI(title='CALCULADORA DE CONSUMO DE ENERGIA ELÉTRICA')
 
@@ -36,3 +37,4 @@ app.include_router(comodo_router)
 app.include_router(tipo_dispositivos_router)
 app.include_router(dispositivos_router)
 app.include_router(bandeira_router)
+app.include_router(consumo_router)
